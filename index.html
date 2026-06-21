@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SiteRoast AI | Brutally Honest Website Audits</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container nav-inner">
+        <div class="brand">
+          <i data-lucide="flame" class="brand-icon"></i>
+          <span class="brand-text">SiteRoast <span class="accent">AI</span></span>
+        </div>
+        <nav class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <button class="btn btn-ghost">Login</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="badge">MVP Engine v1.0</div>
+            <h1>Get a brutally honest <span class="accent">website audit</span></h1>
+            <p class="lead">Enter your URL and get an AI-powered, actionable audit focused on conversion, trust, SEO, and UX.</p>
+
+            <form id="auditForm" class="audit-form" aria-label="Analyze website form">
+              <div class="input-row">
+                <i data-lucide="globe" class="input-icon"></i>
+                <input id="urlInput" type="url" placeholder="https://your-startup.com" required />
+              </div>
+              <div class="actions">
+                <button id="submitBtn" class="btn btn-primary" type="submit">
+                  <span id="btnText">Analyze Website</span>
+                  <i data-lucide="arrow-right" id="btnIcon"></i>
+                  <i data-lucide="loader-2" id="loadingIcon" class="spin hidden"></i>
+                </button>
+              </div>
+            </form>
+
+            <div class="features-compact">
+              <div class="feature"><i data-lucide="zap"></i> Instant</div>
+              <div class="feature"><i data-lucide="shield-alert"></i> Trust</div>
+              <div class="feature"><i data-lucide="target"></i> Conversion</div>
+            </div>
+          </div>
+
+          <div class="hero-panel" id="resultsPanel" aria-live="polite">
+            <div id="loadingState" class="panel loading hidden">
+              <i data-lucide="loader-2" class="spin large"></i>
+              <p class="muted">Running AI Analysis...</p>
+            </div>
+
+            <div id="resultsDashboard" class="panel results hidden">
+              <div class="results-header">
+                <h3>Audit Results for <span id="targetUrlDisplay" class="accent">—</span></h3>
+              </div>
+
+              <div class="scores">
+                <div class="score-card">
+                  <h4>Overall</h4>
+                  <div class="score big" id="overallScore">0</div>
+                </div>
+                <div class="score-grid">
+                  <div class="mini-score">
+                    <div class="label">Conversion</div>
+                    <div class="value" id="conversionScore">0</div>
+                  </div>
+                  <div class="mini-score">
+                    <div class="label">Trust</div>
+                    <div class="value" id="trustScore">0</div>
+                  </div>
+                  <div class="mini-score">
+                    <div class="label">SEO</div>
+                    <div class="value" id="seoScore">0</div>
+                  </div>
+                  <div class="mini-score">
+                    <div class="label">UX</div>
+                    <div class="value" id="uxScore">0</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="details">
+                <div class="column">
+                  <h4>Top Issues</h4>
+                  <ol id="issuesList" class="stack"></ol>
+                </div>
+                <div class="column">
+                  <h4>Top Recommendations</h4>
+                  <ol id="recommendationsList" class="stack"></ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section container">
+        <h2 class="section-title">Why SiteRoast AI?</h2>
+        <p class="muted">Built for founders who want the truth, not a vanity score.</p>
+
+        <div class="grid">
+          <div class="card">
+            <i data-lucide="target" class="icon-lg"></i>
+            <h3>Conversion Focused</h3>
+            <p>We analyze CTA placement, headline clarity, and friction points that lose visitors.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="shield-alert" class="icon-lg"></i>
+            <h3>Trust Signals</h3>
+            <p>Missing testimonials, poor contact info, or odd design patterns — we call them out.</p>
+          </div>
+          <div class="card">
+            <i data-lucide="zap" class="icon-lg"></i>
+            <h3>Instant Action Plan</h3>
+            <p>Top 5 issues and top 5 fixes you can do in a day.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="section container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <i data-lucide="search"></i>
+            <h4>1. Input URL</h4>
+            <p>We fetch the page and analyze HTML, content, and structure.</p>
+          </div>
+          <div class="step">
+            <i data-lucide="cpu"></i>
+            <h4>2. AI Analysis</h4>
+            <p>Our models score conversion, trust, SEO, and UX signals.</p>
+          </div>
+          <div class="step">
+            <i data-lucide="check-circle"></i>
+            <h4>3. Action Plan</h4>
+            <p>Receive top issues and prioritized recommendations.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="section container">
+        <h2 class="section-title">Pricing</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Free</h3>
+            <p class="price">$0</p>
+            <ul>
+              <li>1 free audit</li>
+              <li>Summary report</li>
+            </ul>
+            <button class="btn btn-secondary">Get Started</button>
+          </div>
+          <div class="pricing-card popular">
+            <h3>Pro</h3>
+            <p class="price">$29/mo</p>
+            <ul>
+              <li>Unlimited audits</li>
+              <li>Detailed recommendations</li>
+            </ul>
+            <button class="btn btn-primary">Start Free Trial</button>
+          </div>
+          <div class="pricing-card">
+            <h3>Enterprise</h3>
+            <p class="price">Custom</p>
+            <ul>
+              <li>Dedicated support</li>
+              <li>Team seats</li>
+            </ul>
+            <button class="btn btn-ghost">Contact Sales</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p class="muted">© 2026 SiteRoast AI. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
